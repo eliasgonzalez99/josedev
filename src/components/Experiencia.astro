@@ -1,0 +1,274 @@
+<section id="experiencia">
+  <div class="wrap">
+    <p class="s-label reveal">Experiencia laboral</p>
+    <h2 class="section-title reveal reveal-delay-1">Trayectoria profesional</h2>
+
+    <div class="timeline">
+
+      <div class="job reveal reveal-delay-2">
+        <div class="job-marker">
+          <div class="marker-dot active"></div>
+          <div class="marker-line"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-head">
+            <div>
+              <h3 class="job-company">Clip</h3>
+              <p class="job-loc mono">Chiapas · MX · Remoto</p>
+            </div>
+            <div class="job-right">
+              <span class="job-role tag">Jr Software Engineer</span>
+              <span class="job-date mono">Mar 2022 – Presente</span>
+            </div>
+          </div>
+          <ul class="job-list">
+            <li>Diseño e implementación de microservicios en Go para el procesamiento de pagos, manejando ~2M transacciones/día</li>
+            <li>Migración de arquitectura monolítica a microservicios con Kubernetes en GCP, reduciendo el tiempo de despliegue un 70%</li>
+            <li>Implementación de observabilidad con OpenTelemetry, Prometheus y Grafana</li>
+            <li>Mentoría técnica a 3 ingenieros junior y revisión de diseño de sistemas</li>
+          </ul>
+          <div class="job-stack">
+            <span class="tag">Go</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">GCP</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Kafka</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="job reveal reveal-delay-1">
+        <div class="job-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-line"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-head">
+            <div>
+              <h3 class="job-company">Konfío</h3>
+              <p class="job-loc mono">Ciudad de México · MX</p>
+            </div>
+            <div class="job-right">
+              <span class="job-role tag">Software Engineer</span>
+              <span class="job-date mono">Jun 2020 – Feb 2022</span>
+            </div>
+          </div>
+          <ul class="job-list">
+            <li>Desarrollo del motor de scoring crediticio con Node.js y Python, integrando fuentes de datos externas (SAT, Buró de Crédito)</li>
+            <li>Construcción de pipelines de datos con Apache Airflow para reportes regulatorios</li>
+            <li>Optimización de consultas SQL y diseño de índices; reducción de latencia media de 800ms a 120ms</li>
+          </ul>
+          <div class="job-stack">
+            <span class="tag">Node.js</span>
+            <span class="tag">Python</span>
+            <span class="tag">Airflow</span>
+            <span class="tag">AWS</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="job reveal reveal-delay-1">
+        <div class="job-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-line"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-head">
+            <div>
+              <h3 class="job-company">Wizeline</h3>
+              <p class="job-loc mono">Guadalajara · MX</p>
+            </div>
+            <div class="job-right">
+              <span class="job-role tag">Software Engineer</span>
+              <span class="job-date mono">Ene 2019 – May 2020</span>
+            </div>
+          </div>
+          <ul class="job-list">
+            <li>Desarrollo fullstack con React y GraphQL para plataforma SaaS de analítica</li>
+            <li>Implementación de sistema de autenticación con OAuth2 y refresh token rotation</li>
+            <li>Participación en proceso de certificación SOC 2 Type II del producto</li>
+          </ul>
+          <div class="job-stack">
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">GraphQL</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="job reveal reveal-delay-1">
+        <div class="job-marker">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="job-content">
+          <div class="job-head">
+            <div>
+              <h3 class="job-company">Freelance</h3>
+              <p class="job-loc mono">Remoto · Internacional</p>
+            </div>
+            <div class="job-right">
+              <span class="job-role tag">Consultor de Software</span>
+              <span class="job-date mono">2017 – 2018</span>
+            </div>
+          </div>
+          <ul class="job-list">
+            <li>Desarrollo de APIs REST para clientes en LATAM y España (e-commerce, logística)</li>
+            <li>Configuración de infraestructura en AWS (EC2, RDS, S3, CloudFront)</li>
+          </ul>
+          <div class="job-stack">
+            <span class="tag">PHP</span>
+            <span class="tag">Laravel</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Vue.js</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: 3.5rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .job {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  /* Timeline marker */
+  .job-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.25rem;
+  }
+
+  .marker-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--muted);
+    background: var(--bg);
+    flex-shrink: 0;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+    z-index: 1;
+  }
+  .marker-dot.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .job:hover .marker-dot {
+    border-color: var(--accent-dim);
+    background: var(--accent-glow2);
+  }
+  .job:hover .marker-dot.active {
+    background: var(--accent);
+    box-shadow: 0 0 16px var(--accent-glow);
+  }
+
+  .marker-line {
+    flex: 1;
+    width: 1px;
+    background: var(--subtle);
+    margin-top: 6px;
+    min-height: 40px;
+  }
+
+  /* Job content */
+  .job-content {
+    padding: 0 0 2.5rem;
+  }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .job-company {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    transition: color var(--transition);
+  }
+  .job:hover .job-company { color: var(--accent); }
+
+  .job-loc {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .job-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+  }
+
+  .job-role { font-size: 0.60rem !important; }
+
+  .job-date {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .job-list li {
+    font-size: 0.92rem;
+    color: var(--text-2);
+    line-height: 1.65;
+    position: relative;
+  }
+  .job-list li::before {
+    content: '—';
+    position: absolute;
+    left: -1rem;
+    color: var(--accent-dim);
+    font-size: 0.8rem;
+  }
+
+  .job-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  @media (max-width: 600px) {
+    .job { grid-template-columns: 1fr; gap: 0.5rem; }
+    .job-marker { display: none; }
+    .job-content { padding-bottom: 2rem; border-bottom: 1px solid var(--subtle); }
+  }
+</style>

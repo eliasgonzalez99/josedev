@@ -1,0 +1,189 @@
+<section id="sobre-mi">
+  <div class="wrap">
+    <p class="s-label reveal">Sobre mí</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="reveal reveal-delay-1">
+          Ingeniero con enfoque en<br /><em>sistemas y escalabilidad</em>
+        </h2>
+        <p class="reveal reveal-delay-2">
+          Desarrollador con más de 6 años de experiencia construyendo APIs de
+          alto rendimiento, microservicios y pipelines de datos. Me impulsa la
+          búsqueda de soluciones elegantes a problemas complejos y la
+          colaboración en equipos multidisciplinarios.
+        </p>
+        <p class="reveal reveal-delay-3">
+          He trabajado en startups de fintech y empresas de producto, lo que me
+          dio perspectiva sobre la importancia del balance entre velocidad de
+          entrega y deuda técnica. Creo en el código como herramienta de
+          comunicación entre equipos.
+        </p>
+
+        <div class="stats-row reveal reveal-delay-4">
+          <div class="stat">
+            <span class="stat-num">6+</span>
+            <span class="stat-label mono">años de exp.</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">2M+</span>
+            <span class="stat-label mono">tx/día procesadas</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">600+</span>
+            <span class="stat-label mono">GitHub stars</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-meta">
+        <div class="meta-block reveal reveal-delay-1">
+          <span class="meta-label mono">Formación</span>
+          <div class="edu-item">
+            <span class="edu-deg">Maestría en Ciberseguridad</span>
+            <span class="edu-inst mono">Universidad Autónoma de Guadalajara</span>
+          </div>
+          <div class="edu-item">
+            <span class="edu-deg">Ingeniería en Sistemas Computacionales</span>
+            <span class="edu-inst mono">Universidad Valle del Grijalva</span>
+          </div>
+        </div>
+        <div class="meta-block reveal reveal-delay-2">
+          <span class="meta-label mono">Info adicional</span>
+          <ul class="meta-list">
+            <li>
+              <span class="meta-icon">◈</span>
+              AWS Certified Solutions Architect
+            </li>
+            <li>
+              <span class="meta-icon">◈</span>
+              Open source contributor (GitHub)
+            </li>
+            <li>
+              <span class="meta-icon">◈</span>
+              Español nativo · Inglés profesional
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+  .about-text h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--text-2);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  /* Stats */
+  .stats-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--subtle);
+    border-radius: 8px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--subtle);
+    flex-shrink: 0;
+  }
+
+  /* Meta blocks */
+  .meta-block {
+    padding: 1.5rem;
+    border: 1px solid var(--subtle);
+    background: var(--surface);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: border-color var(--transition);
+  }
+  .meta-block:hover { border-color: var(--accent-dim); }
+
+  .meta-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1.1rem;
+  }
+
+  .edu-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--subtle);
+  }
+  .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .edu-deg {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+  .edu-inst { font-size: 0.66rem; letter-spacing: 0.04em; color: var(--muted); }
+
+  .meta-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: var(--text-2);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--subtle);
+  }
+  .meta-list li:last-child { border-bottom: none; }
+  .meta-icon { color: var(--accent-dim); font-size: 0.55rem; flex-shrink: 0; }
+
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stats-row { gap: 1.25rem; flex-wrap: wrap; }
+  }
+</style>

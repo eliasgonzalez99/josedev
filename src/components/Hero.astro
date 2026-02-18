@@ -1,0 +1,274 @@
+<section id="hero">
+  <div class="hero-bg-grain"></div>
+  <div class="hero-glow"></div>
+
+  <div class="wrap hero-inner">
+
+    <div class="hero-tag reveal">
+      <span class="tag-pulse"></span>
+      <span class="mono" style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent)">
+        Disponible para nuevas oportunidades
+      </span>
+    </div>
+
+    <div class="hero-layout">
+      <div class="hero-text">
+        <h1 class="hero-name reveal reveal-delay-1">
+          Jose<br /><em>Ozuna</em>
+        </h1>
+        <p class="hero-title mono reveal reveal-delay-2">
+          Software Engineer · Backend · Cloud · Sistemas distribuidos
+        </p>
+        <p class="hero-desc reveal reveal-delay-3">
+          Ingeniero de software con experiencia en el diseño y desarrollo de
+          sistemas distribuidos de alta disponibilidad. Apasionado por la
+          arquitectura limpia, la automatización y la mejora continua.
+          Actualmente profundizando en plataformas cloud-native y observabilidad.
+        </p>
+        <div class="hero-actions reveal reveal-delay-4">
+          <a href="#experiencia" class="btn-primary">Ver experiencia <span>↓</span></a>
+          <a href="#contacto" class="btn-ghost">Contacto <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="hero-coords reveal reveal-delay-2">
+        <div class="coord-item">
+          <span class="coord-label mono">Ubicación</span>
+          <span class="coord-val">Chiapas · MX</span>
+        </div>
+        <div class="coord-item">
+          <span class="coord-label mono">Especialidad</span>
+          <span class="coord-val">Backend · Cloud</span>
+        </div>
+        <div class="coord-item">
+          <span class="coord-label mono">Stack principal</span>
+          <span class="coord-val">Go · TypeScript · K8s</span>
+        </div>
+        <div class="coord-item">
+          <span class="coord-label mono">Disponibilidad</span>
+          <span class="coord-val accent">Remoto · Tiempo completo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint reveal" aria-hidden="true">
+      <span class="mono" style="font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)">Scroll</span>
+      <div class="scroll-line">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+
+    <div class="corner-tl"></div>
+    <div class="corner-br"></div>
+  </div>
+</section>
+
+<style>
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Grain overlay */
+  .hero-bg-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Ambient glow */
+  .hero-glow {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  /* Available badge */
+  .hero-tag {
+    margin-bottom: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--subtle);
+    border-radius: 100px;
+    background: var(--surface);
+  }
+
+  .tag-pulse {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    position: relative;
+  }
+  .tag-pulse::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.3;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    0%   { transform: scale(0.8); opacity: 0.4; }
+    70%  { transform: scale(2);   opacity: 0; }
+    100% { transform: scale(2);   opacity: 0; }
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .hero-name {
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.95;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-name em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-desc {
+    font-size: 1.25rem;
+    max-width: 48ch;
+    margin-bottom: 2.25rem;
+    color: var(--text-2);
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Info card */
+  .hero-coords {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--subtle);
+    border-radius: 8px;
+    min-width: 200px;
+    overflow: hidden;
+  }
+
+  .coord-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid var(--subtle);
+    transition: background var(--transition);
+  }
+  .coord-item:last-child { border-bottom: none; }
+  .coord-item:hover { background: var(--surface2); }
+
+  .coord-label {
+    font-size: 0.56rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .coord-val {
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .coord-val.accent { color: var(--accent); }
+
+  /* Scroll hint */
+  .hero-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 4rem;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--subtle);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-dot {
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: slide-right 2s ease-in-out infinite;
+  }
+  @keyframes slide-right {
+    0%   { left: -4px; opacity: 0; }
+    20%  { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { left: calc(100% + 4px); opacity: 0; }
+  }
+
+  /* Corner marks */
+  .corner-tl, .corner-br {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+  .corner-tl {
+    top: -10px; left: -10px;
+    border-top: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
+  }
+  .corner-br {
+    bottom: -10px; right: -10px;
+    border-bottom: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+  }
+
+  @media (max-width: 720px) {
+    .hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-coords { flex-direction: row; flex-wrap: wrap; gap: 0; }
+    .coord-item { flex: 1 1 45%; }
+    .hero-scroll-hint { display: none; }
+  }
+</style>

@@ -1,0 +1,192 @@
+---
+const year = new Date().getFullYear();
+---
+
+<section id="contacto">
+  <div class="wrap">
+    <p class="s-label reveal">Contacto</p>
+
+    <div class="contact-grid">
+      <div class="reveal reveal-delay-1">
+        <h2 class="contact-heading">¿Construimos<br /><em>algo juntos?</em></h2>
+        <p>
+          Estoy abierto a posiciones de backend, distributed systems y
+          platform engineering, ya sea remoto o híbrido. También disponible
+          para consultoría técnica y colaboraciones en proyectos open-source.
+        </p>
+        <a href="mailto:alex@example.com" class="btn-primary contact-cta">
+          Enviar mensaje ↗
+        </a>
+      </div>
+
+      <div class="contact-links reveal reveal-delay-2">
+        <a href="mailto:alex@example.com" class="contact-row">
+          <div class="contact-row-left">
+            <span class="contact-type mono">Email</span>
+            <span class="contact-val">alex@example.com</span>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-row">
+          <div class="contact-row-left">
+            <span class="contact-type mono">GitHub</span>
+            <span class="contact-val">github.com/alexram</span>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-row">
+          <div class="contact-row-left">
+            <span class="contact-type mono">LinkedIn</span>
+            <span class="contact-val">linkedin.com/in/alexram</span>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+
+        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" class="contact-row">
+          <div class="contact-row-left">
+            <span class="contact-type mono">Currículum</span>
+            <span class="contact-val">Descargar CV (PDF)</span>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <footer class="site-footer reveal">
+      <div class="footer-inner">
+        <span class="mono footer-copy">
+          © {year} Jose Ozuna · Software Engineer · Chiapas
+        </span>
+        <div class="footer-links">
+          <a href="#hero" class="mono footer-back">↑ Volver arriba</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-bottom: 5rem;
+  }
+
+  .contact-heading {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 1.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .contact-heading em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .contact-grid > div > p {
+    font-size: 1rem;
+    color: var(--text-2);
+    line-height: 1.8;
+    max-width: 44ch;
+    margin-bottom: 2rem;
+  }
+
+  .contact-cta { display: inline-flex; }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--subtle);
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--subtle);
+    transition: padding-left var(--transition), background var(--transition);
+    border-radius: 0;
+    position: relative;
+  }
+  .contact-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform var(--transition);
+  }
+  .contact-row:hover {
+    padding-left: 1rem;
+    background: var(--accent-glow2);
+  }
+  .contact-row:hover::before { transform: scaleY(1); }
+  .contact-row:hover .contact-arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  .contact-row-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .contact-type {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .contact-val { font-size: 0.95rem; color: var(--text); }
+
+  .contact-arrow {
+    font-size: 1.1rem;
+    color: var(--muted);
+    transition: color var(--transition), transform var(--transition);
+  }
+
+  /* Footer */
+  .site-footer {
+    padding-top: 2rem;
+    border-top: 1px solid var(--subtle);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .footer-back {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color var(--transition);
+  }
+  .footer-back:hover { color: var(--accent); }
+
+  @media (max-width: 720px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>

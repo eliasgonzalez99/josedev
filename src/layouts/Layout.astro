@@ -1,0 +1,86 @@
+---
+import '../styles/global.css';
+const { title = "j ozuna — Software Engineer" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de jozuna, Software Engineer especializado en sistemas distribuidos, arquitectura cloud y desarrollo backend." />
+    <meta name="author" content="J ozuna" />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="nav" id="site-nav">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">J<span>.</span>Ozuna</a>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+          <button id="themeToggle" aria-label="Cambiar tema">◑ Tema</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <script>
+      // ── Theme ──────────────────────────────────────────────────────
+      const saved = localStorage.getItem('theme') ?? 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+
+      const toggle = document.getElementById('themeToggle')!;
+      toggle.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        toggle.textContent = next === 'dark' ? '◑ Tema' : '◐ Tema';
+      });
+      toggle.textContent = saved === 'dark' ? '◑ Tema' : '◐ Tema';
+
+      // ── Scroll reveal ──────────────────────────────────────────────
+      const revealObserver = new IntersectionObserver(
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            revealObserver.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      // ── Active nav link (scroll spy) ───────────────────────────────
+      const sections = document.querySelectorAll<HTMLElement>('section[id]');
+      const navLinks = document.querySelectorAll<HTMLElement>('.nav-links a');
+
+      const spyObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              navLinks.forEach(a => a.classList.remove('active'));
+              const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+              active?.classList.add('active');
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+      sections.forEach(s => spyObserver.observe(s));
+    </script>
+  </body>
+</html>

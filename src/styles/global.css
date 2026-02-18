@@ -1,0 +1,316 @@
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Design tokens ──────────────────────────────────────────── */
+:root {
+  --bg:        #0a0c0b;
+  --surface:   #111413;
+  --surface2:  #161a18;
+  --surface3:  #1c2220;
+
+  --text:      #eceee9;
+  --text-2:    #b8bcb5;
+  --muted:     #6e7870;
+  --subtle:    #242b27;
+  --subtle2:   #1d2420;
+
+  --accent:     #4caf50;
+  --accent-dim: #3a8a3e;
+  --accent-glow: rgba(76, 175, 80, 0.12);
+  --accent-glow2: rgba(76, 175, 80, 0.06);
+
+  --mono:  'DM Mono', monospace;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --r:     4px;
+
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Light theme ────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:        #f5f5f0;
+  --surface:   #ebebе6;
+  --surface:   #eaeae5;
+  --surface2:  #e2e2dc;
+  --surface3:  #d8d8d2;
+
+  --text:      #1a1d1b;
+  --text-2:    #3a3e3b;
+  --muted:     #6e7870;
+  --subtle:    #cececb;
+  --subtle2:   #d4d4d0;
+
+  --accent:     #2e7d32;
+  --accent-dim: #388e3c;
+  --accent-glow: rgba(46, 125, 50, 0.10);
+  --accent-glow2: rgba(46, 125, 50, 0.05);
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition-slow), color var(--transition-slow);
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img, svg { display: block; }
+
+/* ─── Utility ────────────────────────────────────────────────── */
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+section { padding: 7rem 0; }
+.mono { font-family: var(--mono); }
+
+/* ─── Scroll reveal ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── Section label ──────────────────────────────────────────── */
+.s-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.s-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+/* ─── Skill bars ─────────────────────────────────────────────── */
+.skill-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 80px;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--subtle);
+}
+.skill-name  { font-size: 0.88rem; color: var(--text); }
+.skill-bar   { height: 2px; background: var(--subtle); border-radius: 1px; overflow: hidden; }
+.skill-fill  { height: 100%; background: var(--accent); border-radius: 1px; }
+.skill-level { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); text-align: right; }
+
+/* ─── Tag pill ───────────────────────────────────────────────── */
+.tag {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--subtle);
+  border-radius: var(--r);
+  color: var(--muted);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.tag:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  background: var(--accent-glow2);
+}
+
+/* ─── Nav ────────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 12, 11, 0.88);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid var(--subtle);
+  transition: background var(--transition-slow);
+}
+
+[data-theme="light"] .nav {
+  background: rgba(245, 245, 240, 0.90);
+}
+
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--text);
+  position: relative;
+}
+.nav-logo span { color: var(--accent); }
+.nav-logo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+.nav-logo:hover::after { width: 100%; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color var(--transition);
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--accent); }
+
+/* ─── Theme toggle ───────────────────────────────────────────── */
+#themeToggle {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--subtle);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+#themeToggle:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  background: var(--accent-glow2);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn-primary {
+  font-family: var(--mono);
+  font-size: 0.70rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.75rem;
+  background: var(--accent);
+  color: #0a0c0b;
+  border-radius: var(--r);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-primary:hover {
+  background: var(--accent-dim);
+  box-shadow: 0 0 24px var(--accent-glow);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  font-family: var(--mono);
+  font-size: 0.70rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.75rem;
+  border: 1px solid var(--subtle);
+  color: var(--muted);
+  border-radius: var(--r);
+  transition: border-color var(--transition), color var(--transition), background var(--transition), transform var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-ghost:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  background: var(--accent-glow2);
+  transform: translateY(-1px);
+}
+.btn-ghost:active { transform: translateY(0); }
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--subtle); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
+/* ─── Selection ──────────────────────────────────────────────── */
+::selection {
+  background: var(--accent-glow);
+  color: var(--accent);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .nav-links { gap: 1.2rem; }
+  .wrap { padding: 0 1.25rem; }
+  section { padding: 5rem 0; }
+}
